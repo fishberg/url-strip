@@ -9,6 +9,7 @@ import shlex
 ################################################################################
 
 BASE_AMAZON = 'https://www.amazon.com/'
+BASE_YOUTUBE = 'https://www.youtube.com/'
 
 def strip_amazon(url):
     base = BASE_AMAZON
@@ -19,8 +20,18 @@ def strip_amazon(url):
     append = identity[0][1:-1] # remove leading/trailing /
     return base + append
 
+def strip_youtube(url):
+    base = BASE_YOUTUBE
+    pattern = '[?&]v=\w+&'
+
+    identity = re.findall(pattern,url)
+    assert len(identity) == 1
+    append = identity[0][1:-1] # remove leading/trailing ?/&
+    return base + 'watch?' + append
+
 PARSERS = {
-    BASE_AMAZON: strip_amazon
+    BASE_AMAZON: strip_amazon,
+    BASE_YOUTUBE: strip_youtube
 }
 
 def strip(url):

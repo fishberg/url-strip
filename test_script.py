@@ -23,6 +23,10 @@ gmail = [
     ('https://mail.google.com/mail/u/0/#sent/FMfcgxJDZnwTPCdfklpjNvfWkjxPTvKh?compose=GTvVlcSMVJJvxlndkhsvvbxZHVpCgxznVGKnQWKljjmlCrnMtJghxPWwkNLFwJpxWMXVFWqfgKTlV', 'https://mail.google.com/mail/u/0/#inbox/FMfcgxJDZnwTPCdfklpjNvfWkjxPTvKh'),
 ]
 
+folder = [
+    ('/home/fishberg/storage/2024-07-18','~/storage/2024-07-18'),
+]
+
 def test_amazon_dp():
     for test_input, test_output in amazon_dp:
         assert S.strip(test_input) == test_output
@@ -37,4 +41,8 @@ def test_youtube():
 
 def test_gmail():
     for test_input, test_output in gmail:
+        assert S.strip(test_input) == test_output
+
+def test_folder():
+    for test_input, test_output in folder:
         assert S.strip(test_input) == test_output

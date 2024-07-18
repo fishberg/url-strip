@@ -8,9 +8,11 @@ import shlex
 
 ################################################################################
 
+USERNAME = os.getlogin()
 BASE_AMAZON = 'https://www.amazon.com'
 BASE_YOUTUBE = 'https://www.youtube.com'
 BASE_GMAIL = 'https://mail.google.com'
+BASE_FOLDER = f'/home/{USERNAME}'
 
 def strip_amazon(url):
     if '/dp/' in url:
@@ -54,15 +56,20 @@ def strip_gmail(url):
     assert len(identity) == 1
     return base + '/mail/u/0/#inbox/' + identity[0]
 
+def strip_folder(url):
+    base = BASE_FOLDER
+    return re.sub('^' + BASE_FOLDER,'~',url)
+
 PARSERS = {
     BASE_AMAZON: strip_amazon,
     BASE_YOUTUBE: strip_youtube,
     BASE_GMAIL: strip_gmail,
+    BASE_FOLDER: strip_folder,
 }
 
 def strip(url):
     for key in PARSERS.keys():
-        if key in url:
+        if re.search('^' + key,url):
             return PARSERS[key](url)
     print('ERROR: no matching parser detected for clipboard contents',file=sys.stderr)
     sys.exit(1)

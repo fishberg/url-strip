@@ -10,6 +10,7 @@ import shlex
 
 BASE_AMAZON = 'https://www.amazon.com'
 BASE_YOUTUBE = 'https://www.youtube.com'
+BASE_GMAIL = 'https://mail.google.com'
 
 def strip_amazon(url):
     if '/dp/' in url:
@@ -20,7 +21,7 @@ def strip_amazon(url):
 
 def strip_amazon_dp(url):
     base = BASE_AMAZON
-    pattern = '/dp/[^/?]+'
+    pattern = r'/dp/[^/?]+'
 
     identity = re.findall(pattern,url)
     assert len(identity) == 1, str(len(identity))
@@ -29,7 +30,7 @@ def strip_amazon_dp(url):
 
 def strip_amazon_gp(url):
     base = BASE_AMAZON
-    pattern = '/gp/product/[^/?]+'
+    pattern = r'/gp/product/[^/?]+'
 
     identity = re.findall(pattern,url)
     assert len(identity) == 1
@@ -38,16 +39,25 @@ def strip_amazon_gp(url):
 
 def strip_youtube(url):
     base = BASE_YOUTUBE
-    pattern = '[?&]v=[^&]+'
+    pattern = r'[?&]v=[^&]+'
 
     identity = re.findall(pattern,url)
     assert len(identity) == 1
     append = identity[0][1:] # remove leading ?/&
     return base + 'watch?' + append
 
+def strip_gmail(url):
+    base = BASE_GMAIL
+    pattern = r'\/mail\/u\/\d+\/\#\w+\/([^\?]+)'
+
+    identity = re.findall(pattern,url)
+    assert len(identity) == 1
+    return base + '/mail/u/0/#inbox/' + identity[0]
+
 PARSERS = {
     BASE_AMAZON: strip_amazon,
-    BASE_YOUTUBE: strip_youtube
+    BASE_YOUTUBE: strip_youtube,
+    BASE_GMAIL: strip_gmail,
 }
 
 def strip(url):

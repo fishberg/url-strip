@@ -5,6 +5,8 @@ import re
 import os
 import subprocess
 import shlex
+import argparse
+from colorama import Fore, Style
 
 ################################################################################
 
@@ -32,11 +34,12 @@ def strip_amazon_dp(url):
 
 def strip_amazon_gp(url):
     base = BASE_AMAZON
-    pattern = r'/gp/product/[^/?]+'
+    #pattern = r'/gp/[^/?]+'
+    pattern = r"/[A-Z0-9]{10}/"
 
     identity = re.findall(pattern,url)
     assert len(identity) == 1
-    append = identity[0].split('/')[3] # only product id number
+    append = identity[0][1:-1] # remove leading and trailing /
     return base + '/dp/' + append
 
 def strip_youtube(url):
@@ -46,7 +49,7 @@ def strip_youtube(url):
     identity = re.findall(pattern,url)
     assert len(identity) == 1
     append = identity[0][1:] # remove leading ?/&
-    return base + 'watch?' + append
+    return base + '/watch?' + append
 
 def strip_gmail(url):
     base = BASE_GMAIL
@@ -77,18 +80,30 @@ def strip(url):
 ################################################################################
 
 def main():
-    in_url = subprocess.check_output(['xclip', '-o'],universal_newlines=True)
-    print(f'input: {in_url}')
+    CLIPBOARD_MODE = len(sys.argv) == 1
+    print(f'{Fore.CYAN}{Style.BRIGHT}CLIPBOARD_MODE: {Style.RESET_ALL}{CLIPBOARD_MODE}')
+
+    if CLIPBOARD_MODE:    
+        # xclip -o
+        in_url = subprocess.check_output(['xclip', '-o'],universal_newlines=True).strip()
+        pass
+    else:
+        in_url = sys.argv[1]
+    print(f'{Fore.GREEN}{Style.BRIGHT}input: {Style.RESET_ALL}{in_url}')
 
     out_url = strip(in_url)
-    print(f'output: {out_url}')
+    print(f'{Fore.RED}{Style.BRIGHT}output: {Style.RESET_ALL}{out_url}')
 
-    # echo -n '{out_url}' | xclip -selection c
-    echo_command = shlex.split(f"echo -n '{out_url}'")
-    xclip_command = shlex.split('xclip -selection c')
+    if CLIPBOARD_MODE:
+        # echo -n '{out_url}' | xclip -selection c
+        echo_command = shlex.split(f"echo -n '{out_url}'")
+        xclip_command = shlex.split('xclip -selection c')
 
-    echo_proc = subprocess.Popen(echo_command, stdout=subprocess.PIPE)
-    xclip_proc = subprocess.call(xclip_command, stdin=echo_proc.stdout)
+        echo_proc = subprocess.Popen(echo_command, stdout=subprocess.PIPE)
+        xclip_proc = subprocess.call(xclip_command, stdin=echo_proc.stdout)
+        pass
+    else:
+        print(out_url)
 
 ################################################################################
 

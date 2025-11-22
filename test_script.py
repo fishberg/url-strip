@@ -1,31 +1,14 @@
 import url_strip as S
+import yaml
 
-amazon_dp = [
-    ('https://www.amazon.com/Logitech-Wireless-Keyboard-Touchpad-PC-connected/dp/B014EUQOGK/ref=sr_1_4?crid=PBGHN9ESFPE&keywords=keyboard+and+touchpad&qid=1677459820&s=electronics&sprefix=keyboard+and+touchpa%2Celectronics%2C107&sr=1-4', 'https://www.amazon.com/dp/B014EUQOGK'),
-    ('https://www.amazon.com/Brother-P-touch-PTD210-Bundle-included/dp/B09QXZ7ZRD/ref=sr_1_8?crid=1BZJ6M311IJOG&keywords=label%2Bmaker&qid=1677600206&sprefix=label%2Bmake%2Caps%2C113&sr=8-8&th=1', 'https://www.amazon.com/dp/B09QXZ7ZRD'),
-    ('https://www.amazon.com/dp/B075ZH5Z9F?ref_=cm_sw_r_apin_dp_KBE6K9CW71TM71HTEDKE','https://www.amazon.com/dp/B075ZH5Z9F'),
-    ('https://www.amazon.com/dp/B0BT3LRPQM?ref_=cm_sw_r_apin_dp_MH64NP802FB4ENF9RR4T','https://www.amazon.com/dp/B0BT3LRPQM'),
-    ('https://www.amazon.com/dp/B0BQ54DQNM?ref_=cm_sw_r_apin_dp_VEMDD19QDPRB5NBGKFK6','https://www.amazon.com/dp/B0BQ54DQNM'),
-    ('https://www.amazon.com/dp/B06XFVBVQ5?ref_=cm_sw_r_apin_dp_5Y8D9KKZSZREVNJN3T9X','https://www.amazon.com/dp/B06XFVBVQ5'),
-    ('https://www.amazon.com/dp/B0798V3CGC?ref_=cm_sw_r_apin_dp_QRQYXEPFSH08AFMRG6SF','https://www.amazon.com/dp/B0798V3CGC'),
-    ('https://www.amazon.com/StarTech-com-Duplicator-Standalone-Docking-SDOCK2U33RE/dp/B00KT3BEAS?th=1','https://www.amazon.com/dp/B00KT3BEAS'),
-    ('https://www.amazon.com/Introduction-Computation-Programming-Using-Python/dp/0262529629','https://www.amazon.com/dp/0262529629'),
-]
+with open('test_cases.yaml', 'r') as f:
+    data = yaml.safe_load(f)
 
-amazon_gp = [
-    ('https://www.amazon.com/gp/product/0521679710/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1','https://www.amazon.com/dp/0521679710'),
-]
-
-youtube = [
-]
-
-gmail = [
-    ('https://mail.google.com/mail/u/0/#sent/FMfcgxJDZnwTPCdfklpjNvfWkjxPTvKh?compose=GTvVlcSMVJJvxlndkhsvvbxZHVpCgxznVGKnQWKljjmlCrnMtJghxPWwkNLFwJpxWMXVFWqfgKTlV', 'https://mail.google.com/mail/u/0/#inbox/FMfcgxJDZnwTPCdfklpjNvfWkjxPTvKh'),
-]
-
-folder = [
-    ('/home/fishberg/storage/2024-07-18','~/storage/2024-07-18'),
-]
+amazon_dp = [ (x['input'], x['output']) for x in data['amazon_dp']]
+amazon_gp = [ (x['input'], x['output']) for x in data['amazon_gp']]
+youtube = [ (x['input'], x['output']) for x in data['youtube']]
+gmail = [ (x['input'], x['output']) for x in data['gmail']]
+folder = [ (x['input'], x['output']) for x in data['folder']]
 
 def test_amazon_dp():
     for test_input, test_output in amazon_dp:

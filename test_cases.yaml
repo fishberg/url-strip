@@ -1,4 +1,4 @@
-amazon_dp:
+amazon:
   - input: https://www.amazon.com/Logitech-Wireless-Keyboard-Touchpad-PC-connected/dp/B014EUQOGK/ref=sr_1_4?crid=PBGHN9ESFPE&keywords=keyboard+and+touchpad&qid=1677459820&s=electronics&sprefix=keyboard+and+touchpa%2Celectronics%2C107&sr=1-4
     output: https://www.amazon.com/dp/B014EUQOGK
 
@@ -47,7 +47,6 @@ amazon_dp:
   - input: https://www.amazon.com/FREEGENE-Enclosure-SATA-Based-Compatible-Thunderbolt/dp/B084ZKLQR8?crid=H5NISKIORDKP&dib=eyJ2IjoiMSJ9.rG6cC-MlAcdkeU21cQJ2mrLx0MvgpPg3TyFIj1WPIP_BFq3L6qiES8TNz__75zFGzKIklOWzOCInv-Qq2W01QoaV0qnUtgGlmcE0ruxJizuR9-KZUSTAqIOjXEHp7XefUPCk2Hv58UC9FJexHQtLtmnNgUZ4LBgJ-Dja9_qTYx0GuxdNI1SFTnfBdq9oH_IqYlM5s8UhvY-w4lBfS2LdBh9i45e9-fexwQk32E03piQ.8FvgRjAHQd5I1RtzmvUeXSn88FuiSBPe4L4mway04nw&dib_tag=se&keywords=m.2%2Busb%2Bcontainer&qid=1763760020&sprefix=m.2%2Busbcontainer%2Caps%2C233&sr=8-17&th=1
     output: https://www.amazon.com/dp/B084ZKLQR8
 
-amazon_gp:
   - input: https://www.amazon.com/gp/product/0521679710/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
     output: https://www.amazon.com/dp/0521679710
   

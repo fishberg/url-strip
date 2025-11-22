@@ -17,29 +17,15 @@ BASE_GMAIL = 'https://mail.google.com'
 BASE_FOLDER = f'/home/{USERNAME}'
 
 def strip_amazon(url):
-    if '/dp/' in url:
-        f = strip_amazon_dp
-    elif '/gp/' in url:
-        f = strip_amazon_gp
-    return f(url)
-
-def strip_amazon_dp(url):
     base = BASE_AMAZON
-    pattern = r'/dp/[^/?]+'
-
-    identity = re.findall(pattern,url)
-    assert len(identity) == 1, str(len(identity))
-    append = identity[0]
-    return base + append
-
-def strip_amazon_gp(url):
-    base = BASE_AMAZON
-    #pattern = r'/gp/[^/?]+'
-    pattern = r"/[A-Z0-9]{10}/"
+    pattern = r"/([A-Z0-9]{10})(?:/|\?|$)" # find 10 character ID after /
 
     identity = re.findall(pattern,url)
     assert len(identity) == 1
-    append = identity[0][1:-1] # remove leading and trailing /
+    
+    identity = re.search(pattern,url)
+    append = identity.group(1) # remove leading / and (optional) trailing character
+
     return base + '/dp/' + append
 
 def strip_youtube(url):

@@ -73,6 +73,12 @@ gmail:
   - input: https://mail.google.com/mail/u/0/#inbox/FMfcgzQZVKFbfTtHnVZjbGKfWFdhbHJB?compose=CNvvJFXtClZZxjXhcbkfmDTXJCTjNqPQZQDzFvlKKTkKwtmkwTcjvkDXhpzMwWmqzmVjCKMBqKWlXxhJDKVKFCMlFHvctxZwqwkLkHgnPWwTHNNMSNVJCBQhNlGdLwWHdpFpsVrpHhGDtfpFhPFSFjjksx
     output: https://mail.google.com/mail/u/0/#inbox/FMfcgzQZVKFbfTtHnVZjbGKfWFdhbHJB
 
+  - input: https://mail.google.com/mail/u/0/#search/MIT+maratim+/FMfcgzQcqHTtfxRKHPFqQRlNrbvjfHJJ
+    output: https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqHTtfxRKHPFqQRlNrbvjfHJJ
+
+  - input: https://mail.google.com/mail/u/0/#inbox/FMfcgzQfBZhxjQphwDxVVTlnjFCTxjvZ?compose=GTvVlcSBmlxrddQMNKHthzFLmXWhtjGmMXjhXGrZpsBglLxrXdWcjfbjXlwlHpJVRBdCZdkvQkFsz
+    output: https://mail.google.com/mail/u/0/#inbox/FMfcgzQfBZhxjQphwDxVVTlnjFCTxjvZ
+
 folder:
   - input: /home/fishberg/storage/2024-07-18
     output: ~/storage/2024-07-18

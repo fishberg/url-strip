@@ -6,6 +6,7 @@ import os
 import subprocess
 import shlex
 import argparse
+from urllib.parse import urlparse
 from colorama import Fore, Style
 
 ################################################################################
@@ -39,11 +40,10 @@ def strip_youtube(url):
 
 def strip_gmail(url):
     base = BASE_GMAIL
-    pattern = r'\/mail\/u\/\d+\/\#\w+\/([^\?]+)'
+    frag = urlparse(url).fragment
+    thread_id = frag.split('/')[-1].split('?')[0] # get last part of fragment, remove query parameters
 
-    identity = re.findall(pattern,url)
-    assert len(identity) == 1
-    return base + '/mail/u/0/#inbox/' + identity[0]
+    return base + '/mail/u/0/#inbox/' + thread_id
 
 def strip_folder(url):
     base = BASE_FOLDER

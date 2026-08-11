@@ -62,25 +62,23 @@ youtube:
 
 gmail:
   - input: https://mail.google.com/mail/u/0/#sent/FMfcgxJDZnwTPCdfklpjNvfWkjxPTvKh?compose=GTvVlcSMVJJvxlndkhsvvbxZHVpCgxznVGKnQWKljjmlCrnMtJghxPWwkNLFwJpxWMXVFWqfgKTlV
-    output: https://mail.google.com/mail/u/0/#inbox/FMfcgxJDZnwTPCdfklpjNvfWkjxPTvKh
+    output: https://mail.google.com/mail/u/0/#all/FMfcgxJDZnwTPCdfklpjNvfWkjxPTvKh
   
   - input: https://mail.google.com/mail/u/0/#sent/QgrcJHrtsvqcLXpTqBGtmsvzNVQpGwjGrVQ?compose=DmwnWsmGVpKVMqXKLvNHffZWKZHzcnXkBFdVztnNLvJfHvWnCLQgrNDnRQzWdfMKCdfmDNWdpjkQ
-    output: https://mail.google.com/mail/u/0/#inbox/QgrcJHrtsvqcLXpTqBGtmsvzNVQpGwjGrVQ
+    output: https://mail.google.com/mail/u/0/#all/QgrcJHrtsvqcLXpTqBGtmsvzNVQpGwjGrVQ
 
   - input: https://mail.google.com/mail/u/0/#inbox/FMfcgzQZTzSKzRPpRNRxhBHSnxbRQkDr?compose=MLcFSlPFwxxShlrqNcVCzLVxZLPThvttrjdHpJKPqlQZNbcZgckXnBFNtzvJxrnqScxdpQClbDXsBpqRCCnjkGVZTBFFfDhWrmqpLMRWZlzKnKFtzPCtvnxDGZsvjSwVQdjTDqxGzPnNqCLLRBZzBFlXWDDHBdcfvLLZwDMRjvcbbqTXmfthjjZJvbtdJKZMtFQjdqCFNCNkrcjrSlQXrtqnGdlsqzPGdqKqQ
-    output: https://mail.google.com/mail/u/0/#inbox/FMfcgzQZTzSKzRPpRNRxhBHSnxbRQkDr
+    output: https://mail.google.com/mail/u/0/#all/FMfcgzQZTzSKzRPpRNRxhBHSnxbRQkDr
   
   - input: https://mail.google.com/mail/u/0/#inbox/FMfcgzQZVKFbfTtHnVZjbGKfWFdhbHJB?compose=CNvvJFXtClZZxjXhcbkfmDTXJCTjNqPQZQDzFvlKKTkKwtmkwTcjvkDXhpzMwWmqzmVjCKMBqKWlXxhJDKVKFCMlFHvctxZwqwkLkHgnPWwTHNNMSNVJCBQhNlGdLwWHdpFpsVrpHhGDtfpFhPFSFjjksx
-    output: https://mail.google.com/mail/u/0/#inbox/FMfcgzQZVKFbfTtHnVZjbGKfWFdhbHJB
+    output: https://mail.google.com/mail/u/0/#all/FMfcgzQZVKFbfTtHnVZjbGKfWFdhbHJB
 
   - input: https://mail.google.com/mail/u/0/#search/MIT+maratim+/FMfcgzQcqHTtfxRKHPFqQRlNrbvjfHJJ
-    output: https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqHTtfxRKHPFqQRlNrbvjfHJJ
+    output: https://mail.google.com/mail/u/0/#all/FMfcgzQcqHTtfxRKHPFqQRlNrbvjfHJJ
 
   - input: https://mail.google.com/mail/u/0/#inbox/FMfcgzQfBZhxjQphwDxVVTlnjFCTxjvZ?compose=GTvVlcSBmlxrddQMNKHthzFLmXWhtjGmMXjhXGrZpsBglLxrXdWcjfbjXlwlHpJVRBdCZdkvQkFsz
-    output: https://mail.google.com/mail/u/0/#inbox/FMfcgzQfBZhxjQphwDxVVTlnjFCTxjvZ
+    output: https://mail.google.com/mail/u/0/#all/FMfcgzQfBZhxjQphwDxVVTlnjFCTxjvZ
 
 folder:
   - input: /home/fishberg/storage/2024-07-18
     output: ~/storage/2024-07-18
-
-

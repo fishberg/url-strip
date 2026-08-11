@@ -43,7 +43,7 @@ def strip_gmail(url):
     frag = urlparse(url).fragment
     thread_id = frag.split('/')[-1].split('?')[0] # get last part of fragment, remove query parameters
 
-    return base + '/mail/u/0/#inbox/' + thread_id
+    return base + '/mail/u/0/#all/' + thread_id
 
 def strip_folder(url):
     base = BASE_FOLDER
